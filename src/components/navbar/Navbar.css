@@ -1,0 +1,27 @@
+.nav{
+    position: fixed;
+    z-index: 5;
+    border-bottom:1px solid lightgrey;
+}
+nav button{
+    margin:5px;
+}
+nav{
+    width:100vw;
+    max-width:100vw;
+    border-bottom: 3px solid lightgrey;
+    background: whitesmoke;
+}
+nav a{
+    text-decoration-line: none;
+    color: purple;
+}
+nav a:visited{
+    color:purple;
+}
+@media (min-width: 768px){
+
+nav.navbar.navbar-expand-md{
+    justify-content: space-between;
+}
+}
