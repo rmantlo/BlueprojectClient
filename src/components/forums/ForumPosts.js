@@ -17,9 +17,9 @@ export default class ForumPosts extends React.Component{
                             <p id='keywordp'>{result.keyword}</p>
                             <h2>{result.title}</h2>
                             <p>{result.forumMessage}</p>
-                            <a href={result.url}>{result.url}</a>
+                            <a href={result.url} target='blank'>{result.url}</a>
                         </div>
-                        <Comment token={this.props.token} forumId={result.id} />
+                        <Comment userId={this.props.userId} token={this.props.token} forumId={result.id} />
                     </div>
                 )
             })

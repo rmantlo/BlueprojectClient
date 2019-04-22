@@ -27,8 +27,8 @@ class Auth extends React.Component {
     render() {
         return (
             <div style={styles.modal} className='auth' >
-                {!this.props.signup ? <Login setToken={this.props.setToken} /> : null}
-                {this.props.signup ? <Signup setToken={this.props.setToken} /> : null}
+                {!this.props.signup ? <Login setUserId={this.props.setUserId} setToken={this.props.setToken} /> : null}
+                {this.props.signup ? <Signup setUserId={this.props.setUserId} setToken={this.props.setToken} /> : null}
             </div>
         )
     }

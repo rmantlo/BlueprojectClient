@@ -3,7 +3,6 @@ import './Forum.css';
 import CreateForum from './CreateForum';
 import ForumSearch from './ForumSearch';
 import ForumPosts from './ForumPosts';
-//import ForumSearchResults from './ForumSearchResults';
 
 class Forum extends React.Component {
     constructor(props) {
@@ -59,7 +58,7 @@ class Forum extends React.Component {
                         <ForumSearch toggleSearch={this.toggleSearch} />
                         <CreateForum token={this.props.token} />
                         <div className='forum'>
-                            <ForumPosts results={this.state.results} token={this.props.token} />
+                            <ForumPosts userId={this.props.userId} results={this.state.results} token={this.props.token} />
                         </div>
                     </div>
                 </div>

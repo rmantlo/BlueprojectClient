@@ -15,21 +15,34 @@ class App extends Component {
     super(props);
     this.state = {
       sessionToken: '',
-
+      user_id: ''
     }
   }
   componentWillMount() {
     const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
     if (token && !this.state.sessionToken) {
       this.setState({ sessionToken: token })
     }
+    if (userId && !this.state.user_id) {
+      this.setState({ user_id: userId })
+    }
   }
+
   setSessionToken = (token) => {
     if (!token || token === undefined) {
       alert('incorrect user login')
     } else {
       localStorage.setItem('token', token);
       this.setState({ sessionToken: token })
+    }
+  }
+  setUserId = (userId) => {
+    if (!userId || userId === undefined) {
+      alert('something went wrong')
+    } else {
+      localStorage.setItem('userId', userId)
+      this.setState({ user_id: userId })
     }
   }
   logout = () => {
@@ -44,8 +57,8 @@ class App extends Component {
           <Route path='/' exact>
             <HomePage token={this.state.sessionToken} />
           </Route>
-          <Route path='/profile' exact><Profile logout={this.logout} token={this.state.sessionToken} /></Route>
-          <Route path='/forums' exact><Forum token={this.state.sessionToken} /></Route>
+          <Route path='/profile' exact><Profile userId={this.state.user_id} logout={this.logout} token={this.state.sessionToken} /></Route>
+          <Route path='/forums' exact><Forum userId={this.state.user_id} token={this.state.sessionToken} /></Route>
           <Route path='/contact' exact><Contact /></Route>
         </Switch>
       )
@@ -57,13 +70,15 @@ class App extends Component {
       )
     }
   }
+  
 
   render() {
+    //console.log(this.state.user_id)
     //console.log(this.state.sessionToken);
     return (
       <div className="App">
         <Router>
-          <NavBar sessionToken={this.state.sessionToken} setToken={this.setSessionToken} logout={this.logout} />
+          <NavBar setUserId={this.setUserId} sessionToken={this.state.sessionToken} setToken={this.setSessionToken} logout={this.logout} />
           {this.protectedViews()}
           <Footer />
         </Router>

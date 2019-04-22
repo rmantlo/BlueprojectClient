@@ -44,13 +44,13 @@
     margin:1px;
     width: 90%;
 }
-/* #profileForum button{
-    z-index: 7;
-    width: 50px;
-    font-size: 10pt;
+#profileForum button{
+    width: 81px;
     padding:2px;
     margin-left:2px;
-} */
+    margin-top: 2px;
+    margin-bottom: 3px;
+}
 #profileForum a{
     color:purple;
     text-decoration-line: none;
@@ -59,7 +59,7 @@
 #profileForum a:hover{
     text-decoration-line: underline;
 }
-.modal{
+.modal1{
     text-align: center;
     background-color: white;
     position: absolute;
@@ -75,8 +75,8 @@
     border: 2px solid lightgrey;
     border-radius: 20px;
     box-shadow: 2px 2px 2px;
-}
-.modal button{
+} 
+.modal1 button{
     text-align: center;
 }
 .modalContent{
@@ -85,4 +85,27 @@
 .xbtn{
     text-align: initial;
     margin: 0 0 0 220px;
+}
+#deleteHeader{
+    margin: 10px;
+    color:black
+}
+.tab-content{
+    position: relative;
+}
+.nav-tabs{
+    position:relative;
+    z-index: 3;
+}
+#nav-link1{
+    width: 25vw;
+}
+#nav-link1 h2{
+    font-size: 2vw;
+}
+@media only screen and (max-device-width: 412px){
+    #nav-link1 h2{
+        font-size: 10pt;
+    }
+    
 }

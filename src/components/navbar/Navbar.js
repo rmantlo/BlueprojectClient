@@ -83,7 +83,7 @@ class NavBar extends React.Component {
                     {buttonToggle}
                 </Navbar>
                 <div>
-                    {this.props.sessionToken ? null : <Auth setToken={this.props.setToken} signup={this.state.signup} />}
+                    {this.props.sessionToken ? null : <Auth setUserId={this.props.setUserId} setToken={this.props.setToken} signup={this.state.signup} />}
                 </div>
             </div>
         )

@@ -1,8 +1,24 @@
 import React from 'react';
 import './Profile.css';
 import ProfileForum from './ProfileForum';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import ProfileComments from './ProfileComments'
+import { Button, Form, FormGroup, Label, Input, Alert, Nav, NavLink, NavItem, TabContent, TabPane, Row, Col } from 'reactstrap';
+import classnames from 'classnames';
+import Radium from 'radium';
 
+const styles = {
+    danger: {
+        position: 'absolute',
+        marginTop: '100px',
+        width: '100%',
+        zIndex: 5,
+        textAlign: 'center',
+        height: '200px',
+        padding: '50px',
+        backgroundColor: '#E95041',
+        color: 'black'
+    }
+}
 class Profile extends React.Component {
     constructor(props) {
         super(props);
@@ -11,15 +27,20 @@ class Profile extends React.Component {
             userInfo: {},
             showPopup: false,
             deletePopup: false,
-
+            activeTab: '1',
         }
     }
     componentDidMount() {
         this.fetchUserForums();
         this.fetchUserInfo();
     }
+    toggleTab = (tab) => {
+        if (this.state.activeTab !== tab) {
+            this.setState({ activeTab: tab })
+        }
+    }
     fetchUserInfo = () => {
-        fetch('http://localhost:3000/forum/userinfo', {
+        fetch('http://localhost:3000/userinfo/userinfo', {
             method: 'GET',
             headers: {
                 "Content-Type": "application",
@@ -28,7 +49,9 @@ class Profile extends React.Component {
         })
             .then(result => result.json())
             .catch(err => console.log(err))
-            .then(result => this.setState({ userInfo: result }))
+            .then(result => {
+                this.setState({ userInfo: result });
+            })
         //console.log(this.state.results)
     }
     fetchUserForums = () => {
@@ -44,9 +67,9 @@ class Profile extends React.Component {
             .then(result => this.setState({ results: result }))
     }
     togglePopup = (e) => {
-        //console.log('clicked')
         e.preventDefault();
         this.setState({ showPopup: !this.state.showPopup })
+        console.log(this.state.showPopup);
     }
     handleChange = (e) => {
         this.setState({
@@ -58,7 +81,7 @@ class Profile extends React.Component {
 
     handleSubmit = (e) => {
         //e.preventDefault();
-        fetch('http://localhost:3000/forum/updateuser', {
+        fetch('http://localhost:3000/userinfo/updateuser', {
             method: 'PUT',
             headers: {
                 "Content-Type": 'application/json',
@@ -75,7 +98,7 @@ class Profile extends React.Component {
         if (!this.state.password) {
             alert('please enter a new password')
         } else {
-            fetch('http://localhost:3000/forum/updatepassword', {
+            fetch('http://localhost:3000/userinfo/updatepassword', {
                 method: 'PUT',
                 headers: {
                     "Content-Type": 'application/json',
@@ -97,9 +120,9 @@ class Profile extends React.Component {
     }
     deleteAccount = () => {
         this.deleteUserPosts();
-        this.props.logout();
+        this.deleteUserComments();
         this.setState({ deletePopup: false });
-        fetch('http://localhost:3000/forum/deleteuser', {
+        fetch('http://localhost:3000/userinfo/deleteuser', {
             method: 'DELETE',
             headers: {
                 "Content-Type": 'application',
@@ -108,6 +131,7 @@ class Profile extends React.Component {
         })
             .then(response => response.json())
             .then(response => { console.log('user deleted'); this.setState({ results: [] }) })
+        this.props.logout();
     }
     deleteUserPosts = () => {
         fetch('http://localhost:3000/forum/deleteallbyuser', {
@@ -118,9 +142,20 @@ class Profile extends React.Component {
             }
         })
             .then(response => response.json())
-            .then(response => { console.log("delete user's post deleted") })
+            .then(response => { console.log("deleted user's post deleted") })
     }
-
+    deleteUserComments = () => {
+        fetch('http://localhost:3000/comments/deleteallbyuser', {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": 'application/json',
+                "Authorization": this.props.token
+            }
+        })
+            .then(response => response.json())
+            .then(response => { console.log("deleted user's comments deleted") })
+    }
+    
 
     render() {
         return (
@@ -136,7 +171,7 @@ class Profile extends React.Component {
                             <Button className='deleteUser' onClick={this.warnDelete}>Delete Account</Button>
                         </div>
                         {this.state.showPopup ?
-                            <div className='modal'>
+                            <div className='modal1'>
                                 <div className='modalContent'>
                                     <Button className='xbtn' onClick={this.togglePopup}>X</Button>
                                     <Form onSubmit={this.handleSubmit}>
@@ -167,13 +202,44 @@ class Profile extends React.Component {
                                 </div>
                             </div> : <div></div>}
                         {this.state.deletePopup ?
-                            <div className='modal'>
-                                <h2>Are you sure you want to delete your account?</h2>
+                            <Alert style={styles.danger}>
+                                <h2 id='deleteHeader'>Are you sure you want to delete your account?</h2>
                                 <Button onClick={e => this.setState({ deletePopup: false })}>Cancel</Button>
                                 <Button onClick={this.deleteAccount}>Delete</Button>
-                            </div>
+                            </Alert>
                             : <div></div>}
-                        <ProfileForum results={this.state.results} token={this.props.token} />
+                        <div className='profileMain'>
+                            <Nav tabs>
+                                <NavItem>
+                                    <NavLink id='nav-link1' className={classnames({ active: this.state.activeTab === '1' })}
+                                        onClick={() => { this.toggleTab('1') }} >
+                                        <h2 id='profileHeader'>User forum posts:</h2>
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink id='nav-link1' className={classnames({ active: this.state.activeTab === '2' })}
+                                        onClick={() => { this.toggleTab('2') }} >
+                                        <h2 id='profileHeader'>User Comments:</h2>
+                                    </NavLink>
+                                </NavItem>
+                            </Nav>
+                            <TabContent activeTab={this.state.activeTab}>
+                                <TabPane tabId='1'>
+                                    <Row>
+                                        <Col sm='12'>
+                                            <ProfileForum userId={this.props.userId} results={this.state.results} token={this.props.token} />
+                                        </Col>
+                                    </Row>
+                                </TabPane>
+                                <TabPane tabId='2'>
+                                    <Row>
+                                        <Col sm='12'>
+                                            <ProfileComments userId={this.props.userId} token={this.props.token} />
+                                        </Col>
+                                    </Row>
+                                </TabPane>
+                            </TabContent>
+                        </div>
 
                     </div>
                 </div>
@@ -181,4 +247,4 @@ class Profile extends React.Component {
         )
     }
 }
-export default Profile;
+export default Radium(Profile);

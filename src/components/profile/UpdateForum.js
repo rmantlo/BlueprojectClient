@@ -37,7 +37,7 @@ export default class UpdateForum extends React.Component {
 
     render() {
         return (
-            <div className='modal'>
+            <div className='modal1'>
                 <div className='modalContent'>
                     <Button className='xbtn' onClick={this.props.togglePopup}>X</Button>
                     <Form onSubmit={this.handleSubmit} id={this.props.postId}>

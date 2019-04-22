@@ -14,6 +14,7 @@ export default class CreateComment extends React.Component {
         })
     }
     handleSubmit = (e) => {
+        e.preventDefault();
         fetch('http://localhost:3000/comments/create', {
             method: 'POST',
             headers: {
@@ -25,10 +26,10 @@ export default class CreateComment extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div id='comments'>
                 <Form onSubmit={this.handleSubmit}>
                     <Input name='comment' value={this.state.comment} placeholder='enter comment' onChange={this.handleChange} required />
-                    <Button type='submit'>Create comment</Button>
+                    <Button type='submit'>Create Comment</Button>
                 </Form>
             </div>
         )

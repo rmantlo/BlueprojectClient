@@ -34,7 +34,7 @@ class HomePage extends React.Component {
         })
             .then(result => result.json())
             .catch(err => console.log(err))
-            .then(data => { this.setState({ results: data }); console.log(data) })
+            .then(data => { this.setState({ results: data }) })
     }
 
     render() {
@@ -50,8 +50,8 @@ class HomePage extends React.Component {
                             {this.state.results.map(result => {
                                 return (
                                     <div className='homeForum' key={result.id}>
-                                        <h3 style={styles.text} key={result.id}>{result.title}</h3>
-                                        <p key={result.id}>{result.forumMessage}</p>
+                                        <h3 style={styles.text} key={result.title}>{result.title}</h3>
+                                        <p key={result.forumMessage}>{result.forumMessage}</p>
                                         <a style={styles.a} href={result.url}>{result.url}</a>
                                     </div>
                                 )

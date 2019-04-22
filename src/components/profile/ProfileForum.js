@@ -38,8 +38,7 @@ export default class ProfileForum extends React.Component {
 
     render() {
         return (
-            <div className='profileMain'>
-                <h2 id='profileHeader'>User forum posts:</h2>
+            <div >
                 {this.props.results.map(result => {
                     return (
                         <div key={result.id}>
@@ -47,10 +46,10 @@ export default class ProfileForum extends React.Component {
                                 <p id='keywordp'>{result.keyword}</p>
                                 <h2>{result.title}</h2>
                                 <p>{result.forumMessage}</p>
-                                <a href={result.url}>{result.url}</a><br />
+                                <a href={result.url} target='blank' >{result.url}</a><br />
                                 <Button id={result.id} onClick={this.togglePopup}>Edit</Button>
                                 <Button id={result.id} onClick={this.deletePost}>Delete</Button>
-                                <Comment token={this.props.token} forumId={result.id} />
+                                <Comment userId={this.props.userId} token={this.props.token} forumId={result.id} />
                             </div>
                         </div>
                     )

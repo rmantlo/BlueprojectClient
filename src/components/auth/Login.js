@@ -39,9 +39,11 @@ class Login extends React.Component {
             })
                 .then(response => response.json())
                 .then(data => {
-                    this.props.setToken(data.sessionToken)
-                    console.log(data.sessionToken)
+                    this.props.setToken(data.sessionToken);
+                    this.props.setUserId(data.user.id);
+                    console.log(data)
                 })
+                .catch(err => console.log(err))
         }
     }
 

@@ -24,7 +24,7 @@
   background: white;
   position:relative;
   width:90vw;
-  height:95%;
+  min-height:90vh;
   clear: both;
   overflow: auto;
 }

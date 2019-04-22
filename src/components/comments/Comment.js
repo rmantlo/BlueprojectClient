@@ -1,26 +1,23 @@
 import React from 'react';
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import CreateComment from './CreateComment';
-import EditComment from './EditComment';
+import CommentBody from './CommentBody';
+import './Comment.css'
 
-export default class Comment extends React.Component {
+
+class Comment extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            edit: false,
             collapse: false,
             comments: [],
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.fetchComments();
     }
     toggle = () => {
         this.setState({ collapse: !this.state.collapse });
-    }
-    toggleEdit = (e) => {
-        e.preventDefault();
-        this.setState({edit: !this.state.edit})
     }
     fetchComments = () => {
         fetch(`http://localhost:3000/comments/comment/${this.props.forumId}`, {
@@ -34,28 +31,45 @@ export default class Comment extends React.Component {
             .then(comments => this.setState({ comments: comments }))
     }
 
+    handleDelete = (e) => {
+        //e.preventDefault();
+        fetch(`http://localhost:3000/comments/delete/${e.target.id}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": 'application/json',
+                "Authorization": this.props.token
+            }
+        })
+            .then(response => response.json())
+            .catch(err => console.log(err))
+        window.location.reload();
+    }
+
     render() {
         return (
             <div>
-                <Button onClick={this.toggle}>Comments</Button>
                 <Collapse isOpen={this.state.collapse}>
                     {this.state.comments.map(comment => {
+                        //console.log(comment.owner_id, this.props.userId)
+                        let userId = Number(this.props.userId)
                         return (
                             <Card key={comment.id}>
-                                {this.state.edit ? 
-                                <EditComment token={this.props.token} comment={comment} />
-                                : <CardBody>
-                                    {comment.comment}
-                                    <p>username</p>
-                                </CardBody> 
-                                }
-                                <Button onClick={this.toggleEdit}>Edit</Button>
+                                <CommentBody token={this.props.token} comment={comment} edit={this.state.edit} />
+                                {comment.owner_id === userId ?
+                                    <div>
+                                        
+                                        <Button id={comment.id} onClick={this.handleDelete}>Delete</Button>
+                                    </div>
+                                    : null}
                             </Card>
                         )
                     })}
                     <CreateComment token={this.props.token} forumId={this.props.forumId} />
                 </Collapse>
-            </div>
+                <Button onClick={this.toggle}>Comments</Button>
+            </div >
         )
     }
 }
+
+export default Comment;

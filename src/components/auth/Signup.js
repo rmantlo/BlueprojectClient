@@ -39,7 +39,8 @@ class Signup extends React.Component {
             })
                 .then(response => response.json())
                 .then(data => {
-                    this.props.setToken(data.sessionToken)
+                    this.props.setToken(data.sessionToken);
+                    this.props.setUserId(data.user.id);
                     console.log('user created')
                 })
         }

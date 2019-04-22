@@ -12,12 +12,12 @@ export default class EditComment extends React.Component{
         this.setState({ comment: e.target.value})
     }
     handleSubmit = (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         console.log(e.target.id)
         fetch(`http://localhost:3000/comments/update/${e.target.id}`, {
             method:'PUT',
             headers: {
-                "Content-Type":'application',
+                "Content-Type":'application/json',
                 "Authorization": this.props.token
             },
             body: JSON.stringify(this.state)
