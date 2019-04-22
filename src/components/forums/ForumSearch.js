@@ -22,13 +22,18 @@ export default class ForumSearch extends React.Component {
                             <Label for='keyword'>Keyword:</Label> <br />
                             <Input type='select' name='keyword' value={this.state.keyword} onChange={this.handleChange}>
                                 <option></option>
-                                <option value='Medical'>Medical</option>
-                                <option value='Environmental'>Environmental</option>
+                                <option value='Clinical Trials'>Clinical Trials</option>
                                 <option value='Chemistry'>Chemistry</option>
+                                <option value='Environmental'>Environmental</option>
+                                <option value='Genetics'>Genetics</option>
+                                <option value='Immunology'>Immunology</option>
+                                <option value='Medicine'>Medicine</option>
+                                <option value='Neuroscience'>Neuroscience</option>
+                                <option value='Psychology'>Psychology</option>
                                 <option value='Technology'>Technology</option>
                             </Input>
                         </FormGroup>
-                        <Button type='submit'>Search</Button>
+                        <Button className='greenBtn' type='submit'>Search</Button>
                     </Form>
                 </div>
             </div>

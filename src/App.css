@@ -4,7 +4,9 @@
 
 .mainPage{
   position:relative;
-  background: #556B2F;
+  background: url('./assets/books.jpeg');
+  background-attachment: fixed;
+  /* background: #556B2F; */
   text-align: initial;
   margin-top:0;
   max-width: 100vw;
@@ -18,13 +20,18 @@
   font-family: 'Roboto Slab', serif;
 }
 .wrapper{
-  padding-top:5px;
+  top:-1px;
+  padding-top:15px;
   padding-bottom:70px;
   margin:auto auto;
   background: white;
   position:relative;
   width:90vw;
-  min-height:90vh;
+  min-height:96vh;
   clear: both;
   overflow: auto;
+}
+.greenBtn {
+  background-color: #67994D !important;
+  border-color: #67994D;
 }

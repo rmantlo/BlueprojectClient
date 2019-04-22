@@ -9,7 +9,7 @@ const styles= {
     },
     button: {
         margin: '10px',
-        textAlign: 'center'
+        textAlign: 'center',
     }
 }
 
@@ -69,7 +69,7 @@ class Login extends React.Component {
                         <Label for='password'>Password:</Label><br />
                         <Input id='li_password' type='password' name='password' placeholder='enter password' onChange={this.handleChange} />
                     </FormGroup>
-                    <Button style={styles.button} type='submit'>Login</Button>
+                    <Button className='greenBtn' style={styles.button} type='submit'>Login</Button>
                 </Form>
             </div>
         )

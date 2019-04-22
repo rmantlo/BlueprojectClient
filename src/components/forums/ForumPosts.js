@@ -13,7 +13,7 @@ export default class ForumPosts extends React.Component{
             this.props.results.map(result => {
                 return (
                     <div className='forums' key={result.id}>
-                        <div>
+                        <div className='forumPost'>
                             <p id='keywordp'>{result.keyword}</p>
                             <h2>{result.title}</h2>
                             <p>{result.forumMessage}</p>

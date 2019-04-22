@@ -6,6 +6,8 @@ export default class CreateComment extends React.Component {
         super(props);
         this.state = {
             forum_id: this.props.forumId,
+            update: '',
+            comment: ''
         }
     }
     handleChange = (e) => {
@@ -23,13 +25,20 @@ export default class CreateComment extends React.Component {
             },
             body: JSON.stringify(this.state)
         })
+            .then(res => res.json())
+            .then(res => {
+                this.setState({ update: res });
+                this.props.fetchComments();
+                this.setState({ comment: '' });
+            })
     }
+
     render() {
         return (
-            <div id='comments'>
+            <div id='createComment'>
                 <Form onSubmit={this.handleSubmit}>
                     <Input name='comment' value={this.state.comment} placeholder='enter comment' onChange={this.handleChange} required />
-                    <Button type='submit'>Create Comment</Button>
+                    <Button className='greenBtn' type='submit'>Create Comment</Button>
                 </Form>
             </div>
         )

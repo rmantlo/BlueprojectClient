@@ -1,29 +1,34 @@
 import React from 'react';
-import {  Button, CardBody } from 'reactstrap';
+import { Button, CardBody } from 'reactstrap';
 import EditComment from './EditComment';
 
 class CommentBody extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             edit: false,
         }
     }
-    toggleEdit = (e) => {
-        e.preventDefault();
+    toggleEdit = () => {
         this.setState({ edit: !this.state.edit })
     }
     render() {
+        let userId = Number(this.props.userId)
         return (
-            <div>
+            <div className='commentBody'>
                 {this.state.edit ?
-                    <EditComment token={this.props.token} comment={this.props.comment} />
+                    <EditComment edit={this.toggleEdit} token={this.props.token} comment={this.props.comment} />
                     : <CardBody>
-                        {this.props.comment.comment}
                         <p>--{this.props.comment.username}--</p>
+                        <p><b>{this.props.comment.comment}</b></p>
                     </CardBody>
                 }
-                <Button onClick={this.toggleEdit}>Edit</Button>
+                {this.props.comment.owner_id === userId ?
+                    <div>
+                        {this.state.edit ? null : <Button onClick={(e) => { e.preventDefault(); this.toggleEdit() }}>Edit</Button> }
+                        <Button color='danger' onClick={(e) =>{e.preventDefault(); this.props.handleDelete(this.props.comment.id)}}>Delete</Button>
+                    </div>
+                    : null}
             </div>
         )
     }

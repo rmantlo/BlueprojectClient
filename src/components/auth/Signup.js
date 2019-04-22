@@ -70,7 +70,7 @@ class Signup extends React.Component {
                     <Label for='img'>Image:</Label><br/>
                     <Input type='text' placeholder='enter img url' name='img' value={this.state.img} onChange={this.handleChange} />
                 </FormGroup>
-                <Button style={styles.button} type='submit'>Sign up</Button>
+                <Button className='greenBtn' style={styles.button} type='submit'>Sign up</Button>
             </Form>
         )
     }

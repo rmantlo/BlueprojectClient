@@ -22,9 +22,8 @@ export default class ProfileForum extends React.Component {
             body: JSON.stringify({ id: event.target.id })
         })
             .then(response => response.json())
+            .then(data => this.props.fetchUserForums())
             .catch(err => console.log(err))
-            .then(data => console.log('post deleted'))
-        window.location.reload(); //force refresh page
     }
     togglePopup = (e) => {
         e.preventDefault();
@@ -47,8 +46,8 @@ export default class ProfileForum extends React.Component {
                                 <h2>{result.title}</h2>
                                 <p>{result.forumMessage}</p>
                                 <a href={result.url} target='blank' >{result.url}</a><br />
-                                <Button id={result.id} onClick={this.togglePopup}>Edit</Button>
-                                <Button id={result.id} onClick={this.deletePost}>Delete</Button>
+                                <Button className='profileForumBtn' id={result.id} onClick={this.togglePopup}>Edit</Button>
+                                <Button className='profileForumBtn' color='danger' id={result.id} onClick={this.deletePost}>Delete</Button>
                                 <Comment userId={this.props.userId} token={this.props.token} forumId={result.id} />
                             </div>
                         </div>
@@ -56,7 +55,7 @@ export default class ProfileForum extends React.Component {
                 })}
                 {
                     this.state.showPopup ?
-                        <UpdateForum token={this.props.token} postId={this.state.postId} togglePopup={this.togglePopup} />
+                        <UpdateForum fetchUserForums={this.props.fetchUserForums} token={this.props.token} postId={this.state.postId} togglePopup={this.togglePopup} />
                         : <div></div>
                 }
             </div>

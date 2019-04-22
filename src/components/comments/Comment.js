@@ -1,5 +1,5 @@
 import React from 'react';
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { Collapse, Button, Card } from 'reactstrap';
 import CreateComment from './CreateComment';
 import CommentBody from './CommentBody';
 import './Comment.css'
@@ -10,7 +10,7 @@ class Comment extends React.Component {
         super(props);
         this.state = {
             collapse: false,
-            comments: [],
+            comments: []
         }
     }
     componentDidMount() {
@@ -32,8 +32,7 @@ class Comment extends React.Component {
     }
 
     handleDelete = (e) => {
-        //e.preventDefault();
-        fetch(`http://localhost:3000/comments/delete/${e.target.id}`, {
+        fetch(`http://localhost:3000/comments/delete/${e}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": 'application/json',
@@ -41,32 +40,26 @@ class Comment extends React.Component {
             }
         })
             .then(response => response.json())
+            .then( res => this.fetchComments())
             .catch(err => console.log(err))
-        window.location.reload();
     }
 
     render() {
         return (
-            <div>
+            <div className='comment'>
                 <Collapse isOpen={this.state.collapse}>
                     {this.state.comments.map(comment => {
                         //console.log(comment.owner_id, this.props.userId)
-                        let userId = Number(this.props.userId)
+                        //let userId = Number(this.props.userId)
                         return (
-                            <Card key={comment.id}>
-                                <CommentBody token={this.props.token} comment={comment} edit={this.state.edit} />
-                                {comment.owner_id === userId ?
-                                    <div>
-                                        
-                                        <Button id={comment.id} onClick={this.handleDelete}>Delete</Button>
-                                    </div>
-                                    : null}
+                            <Card className='commentCard' key={comment.id}>
+                                <CommentBody handleDelete={this.handleDelete} userId={this.props.userId} token={this.props.token} comment={comment} edit={this.state.edit} />
                             </Card>
                         )
                     })}
-                    <CreateComment token={this.props.token} forumId={this.props.forumId} />
+                    <CreateComment fetchComments={this.fetchComments} token={this.props.token} forumId={this.props.forumId} />
                 </Collapse>
-                <Button onClick={this.toggle}>Comments</Button>
+                <Button className='commentBtn greenBtn' onClick={this.toggle}>Comments</Button>
             </div >
         )
     }

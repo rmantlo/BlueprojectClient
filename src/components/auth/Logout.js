@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 
 const Logout = (props) => {
     return (
-        <Button onClick={props.logout}>Logout</Button>
+        <Button className='greenBtn' onClick={props.logout}>Logout</Button>
     )
 }
 

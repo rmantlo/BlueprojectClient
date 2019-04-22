@@ -27,8 +27,15 @@
 .homeForum p:hover{
     text-decoration-line: none;
 }
+.forumLink{
+    margin:auto auto;
+    color:black;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
 .homeLink{
     text-decoration-line: none;
+    word-wrap: break-word;
 }
 .homeLink:visited{
     text-decoration-line: none;

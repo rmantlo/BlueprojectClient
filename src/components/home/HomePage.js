@@ -40,23 +40,25 @@ class HomePage extends React.Component {
     render() {
         return (
             <div className='mainPage'>
-                    <div className='jumbotron'>
-                        <h1>Medical Connect</h1>
-                    </div>
+                <div className='jumbotron'>
+                    <h1>Medical Connect</h1>
+                </div>
                 <div className='wrapper'>
                     <div className='siteDescription'>
                         <h3 className='homePageh3'>Most recent post</h3>
-                        <Link to='forums' className='homeLink'>
-                            {this.state.results.map(result => {
-                                return (
-                                    <div className='homeForum' key={result.id}>
-                                        <h3 style={styles.text} key={result.title}>{result.title}</h3>
-                                        <p key={result.forumMessage}>{result.forumMessage}</p>
-                                        <a style={styles.a} href={result.url}>{result.url}</a>
-                                    </div>
-                                )
-                            })}
-                        </Link>
+                        <div className='forumLink'>
+                            <Link to='forums' className='homeLink'>
+                                {this.state.results.map(result => {
+                                    return (
+                                        <div className='homeForum' key={result.id}>
+                                            <h3 style={styles.text} key={result.title}>{result.title}</h3>
+                                            <p key={result.forumMessage}>{result.forumMessage}</p>
+                                            <a style={styles.a} href={result.url}>{result.url}</a>
+                                        </div>
+                                    )
+                                })}
+                            </Link>
+                        </div>
                         <h2>Our mission</h2>
                         <p>There are countless social media out floating in the web for people to communicate as well as many resources of articles exploring scientific innovation. But nothing built just for people to actively communicate and share these miracles without it getting lost in a wave of celebaties and self obsession. So this site's future is to be a useful place for people to share new or interest science and have a conversation with other interested parties. Share something that touches your life personally to bring forth information that may help others.</p>
                         <h3>Site updates</h3>

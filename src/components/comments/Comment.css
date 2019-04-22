@@ -1,5 +1,36 @@
-#comments button {
+.comment{
+    display: flex !important;
+    flex-direction: column;
+    width: 85%;
+    margin: auto auto;
+    margin-top: 5px;
+}
+.commentBtn{
+    position: relative;
+    width: 100px;
+    margin: 5px auto !important;
+}
+#createComment button{
     width: 120px;
     font-size: 10pt;
     padding: 5px;
+    float:right;
+}
+.commentCard{
+    margin: auto auto;
+}
+
+.collapse input{
+    margin: auto auto;
+}
+.commentCard button{
+    float:right;
+    margin: 2px;
+    font-size: 10pt;
+    padding: 0;
+    width: 50px;
+}
+.card-body{
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
 }

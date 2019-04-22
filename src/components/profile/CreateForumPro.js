@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Collapse } from 'reactstrap';
 
-export default class CreateForum extends React.Component {
+class CreateForumPro extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             isOpen: false,
             title: '',
@@ -14,7 +14,7 @@ export default class CreateForum extends React.Component {
     }
     toggleIsOpen = (e) => {
         e.preventDefault();
-        this.setState({isOpen: !this.state.isOpen})
+        this.setState({ isOpen: !this.state.isOpen })
     }
     handleChange = (e) => {
         this.setState({
@@ -33,7 +33,6 @@ export default class CreateForum extends React.Component {
             .then(post => post.json())
             .then(post => console.log('post created'))
     }
-
     render() {
         return (
             <div className='createForum'>
@@ -72,8 +71,10 @@ export default class CreateForum extends React.Component {
                         <Button className='greenBtn' type='submit'>Create Post</Button>
                     </Form>
                 </Collapse>
-                <Button className='collapseBtn' onClick={this.toggleIsOpen}>{this.state.isOpen? '^' : 'v'}</Button>
+                <Button className='collapseBtn' onClick={this.toggleIsOpen}>{this.state.isOpen ? '^' : 'v'}</Button>
             </div>
         )
     }
 }
+
+export default CreateForumPro;

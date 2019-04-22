@@ -1,7 +1,8 @@
 import React from 'react';
 import './Profile.css';
 import ProfileForum from './ProfileForum';
-import ProfileComments from './ProfileComments'
+import ProfileComments from './ProfileComments';
+import CreateForumPro from './CreateForumPro';
 import { Button, Form, FormGroup, Label, Input, Alert, Nav, NavLink, NavItem, TabContent, TabPane, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import Radium from 'radium';
@@ -166,9 +167,9 @@ class Profile extends React.Component {
                             <img src={this.state.userInfo.img} alt='' />
                             <h2>{this.state.userInfo.username}</h2>
                             <br />
-                            <Button className='updateModal' onClick={this.togglePopup}>Update User Information</Button>
+                            <Button className='greenBtn' onClick={this.togglePopup}>Update User Information</Button>
                             <br />
-                            <Button className='deleteUser' onClick={this.warnDelete}>Delete Account</Button>
+                            <Button color='danger' className='deleteUser' onClick={this.warnDelete}>Delete Account</Button>
                         </div>
                         {this.state.showPopup ?
                             <div className='modal1'>
@@ -187,7 +188,7 @@ class Profile extends React.Component {
                                             <Input type='text' id='img' placeholder='enter image url' name='img' value={this.state.img} onChange={this.handleChange} />
                                         </FormGroup>
                                         <br />
-                                        <Button type='submit'>Update</Button>
+                                        <Button className='greenBtn' type='submit'>Update</Button>
                                     </Form>
                                     <br />
                                     <Form onSubmit={this.handlePassSubmit}>
@@ -197,7 +198,7 @@ class Profile extends React.Component {
                                             <Input type='password' id='password' placeholder='enter new password' name='password' value={this.state.password} onChange={this.handleChange} />
                                         </FormGroup>
                                         <br />
-                                        <Button type='submit'>Update Password</Button>
+                                        <Button className='greenBtn' type='submit'>Update Password</Button>
                                     </Form>
                                 </div>
                             </div> : <div></div>}
@@ -227,7 +228,9 @@ class Profile extends React.Component {
                                 <TabPane tabId='1'>
                                     <Row>
                                         <Col sm='12'>
-                                            <ProfileForum userId={this.props.userId} results={this.state.results} token={this.props.token} />
+                                        { this.state.results.length < 1 ?
+                                            <CreateForumPro token={this.props.token} />
+                                           : <ProfileForum fetchUserForums={this.fetchUserForums} userId={this.props.userId} results={this.state.results} token={this.props.token} />}
                                         </Col>
                                     </Row>
                                 </TabPane>

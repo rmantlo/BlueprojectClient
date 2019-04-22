@@ -48,10 +48,10 @@ class NavBar extends React.Component {
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className='ml-auto' navbar>
                         <NavItem>
-                            <Button onClick={this.handleSignupToggle} >Sign up</Button>
+                            <Button className='greenBtn' onClick={this.handleSignupToggle} >Sign up</Button>
                         </NavItem>
                         <NavItem>
-                            <Button onClick={this.handleLoginToggle} >Login</Button>
+                            <Button className='greenBtn' onClick={this.handleLoginToggle} >Login</Button>
                         </NavItem>
                     </Nav>
                 </Collapse>

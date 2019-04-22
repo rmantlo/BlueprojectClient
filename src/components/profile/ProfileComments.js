@@ -10,12 +10,23 @@ class ProfileComments extends React.Component {
             edit: false,
         }
     }
-    componentDidMount() {
+    componentDidMount = () => {
         this.fetchComments();
     }
     toggleEdit = (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         this.setState({ edit: !this.state.edit })
+    }
+    fetchComments = () => {
+        fetch('http://localhost:3000/comments/getmine', {
+            method: 'GET',
+            headers: {
+                "Content-Type": 'application/json',
+                "Authorization": this.props.token
+            }
+        })
+            .then(comments => comments.json())
+            .then(comments => this.setState({ comments: comments }, () => this.forceUpdate()))
     }
 
     handleDelete = (e) => {
@@ -28,40 +39,28 @@ class ProfileComments extends React.Component {
             }
         })
             .then(response => response.json())
+            .then( res => this.fetchComments())
             .catch(err => console.log(err))
-            window.location.reload();
     }
 
-    fetchComments = () => {
-        fetch('http://localhost:3000/comments/getmine', {
-            method: 'GET',
-            headers: {
-                "Content-Type": 'application/json',
-                "Authorization": this.props.token
-            }
-        })
-            .then(comments => comments.json())
-            .then(comments => this.setState({ comments: comments }))
-    }
     render() {
-        //console.log(this.props.userId)
         return (
             <div>
                 {this.state.comments.map(comment => {
                     let userId = Number(this.props.userId)
                     return (
-                        <Card key={comment.id}>
+                        <Card key={comment.id} className='commentBody'>
                             {this.state.edit ?
-                                <EditComment token={this.props.token} comment={comment} />
+                                <EditComment fetchComments={this.fetchComments} edit={this.toggleEdit} token={this.props.token} comment={comment} />
                                 : <CardBody>
-                                    {comment.comment}
                                     <p>--{comment.username}--</p>
+                                    <p><b>{comment.comment}</b></p>
                                 </CardBody>
                             }
                             {comment.owner_id === userId ?
                                 <div>
-                                    <Button onClick={this.toggleEdit}>Edit</Button>
-                                    <Button id={comment.id} onClick={this.handleDelete}>Delete</Button>
+                                    <Button className='profileForumBtn' onClick={(e) => { e.preventDefault(); this.toggleEdit() }}>Edit</Button>
+                                    <Button className='profileForumBtn' color='danger' id={comment.id} onClick={this.handleDelete}>Delete</Button>
                                 </div>
                                 : null}
                         </Card>
