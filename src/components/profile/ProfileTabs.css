@@ -1,0 +1,87 @@
+/* tabs */
+.tab-content{
+    position: relative;
+}
+.nav-tabs{
+    position:relative;
+    z-index: 3;
+    background-color: transparent;
+    border-bottom-left-radius: .25em !important; 
+    border-bottom-right-radius: .25em !important; 
+    border-bottom: 5px solid #fff !important;
+}
+#nav-link1{
+    width: 25vw;
+    background-color: #fff;
+}
+#nav-link1 h2{
+    font-size: 2vw;
+}
+@media only screen and (max-device-width: 600px){
+    #nav-link1 h2{
+        font-size: 10pt;
+    } 
+    #nav-link1{
+        width:100px;
+        height: 70px;
+        padding-top: 10px;
+        padding-left: 2px;
+    }
+}
+#profileHeader{
+    border-bottom: 2px solid grey;
+    margin-left: 2vw !important;
+}
+/* tab contents */
+/* Forum */
+#profileForum{
+    border: 2px solid grey;
+    background-color: #EEEEEE;
+    box-shadow: 1px 1px 1px;
+    border-radius: 5px;
+    margin-top:30px;
+    padding-left:10px;
+    padding-right:10px;
+}
+#profileForum p, h2{
+    margin:1px 1px 1px 20px;
+    width: 90%;
+}
+#profileForum button{
+    width: 81px;
+    padding:2px;
+    margin-left:2px;
+    margin-top: 2px;
+    margin-bottom: 3px;
+}
+#profileForum a{
+    color:purple;
+    margin:1px 1px 1px 20px;
+    text-decoration-line: none;
+    word-wrap: break-word;
+}
+#profileForum a:hover{
+    text-decoration-line: underline;
+}
+#keywordp {
+    /* copy save in forum.css */
+    font-size: 10pt;
+    margin-bottom:15px !important;
+    margin-left: 0px !important;
+}
+/* Comments */
+
+/* Buttons */
+.profileCommentBtn button{
+    float:right;
+    margin: 2px;
+    font-size: 10pt;
+    padding: 0;
+    width: 50px;
+}
+.profileForumBtn{
+    float: right;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    width: 81px
+}

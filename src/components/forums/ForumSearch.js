@@ -1,4 +1,5 @@
 import React from 'react';
+import './ForumSearch.css';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 
 export default class ForumSearch extends React.Component {

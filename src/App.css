@@ -24,14 +24,19 @@
   padding-top:15px;
   padding-bottom:70px;
   margin:auto auto;
-  background: white;
   position:relative;
   width:90vw;
-  min-height:96vh;
+ 
   clear: both;
   overflow: auto;
 }
 .greenBtn {
   background-color: #67994D !important;
   border-color: #67994D;
+}
+.logoutBtn{
+  color:white;
+}
+.logoutBtn:visited{
+  color:white
 }

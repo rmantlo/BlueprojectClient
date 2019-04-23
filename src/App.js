@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-//import Auth from './components/auth/Auth';
 import NavBar from './components/navbar/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DefaultHome from './components/home/DefaultHome';
@@ -34,7 +33,7 @@ class App extends Component {
       alert('incorrect user login')
     } else {
       localStorage.setItem('token', token);
-      this.setState({ sessionToken: token })
+      this.setState({ sessionToken: token });
     }
   }
   setUserId = (userId) => {
@@ -54,23 +53,23 @@ class App extends Component {
     if (this.state.sessionToken === localStorage.getItem('token')) {
       return (
         <Switch>
-          <Route path='/' exact>
+          <Route onUpdate={() => window.scrollTo(0, 0)} path='/' exact>
             <HomePage token={this.state.sessionToken} />
           </Route>
-          <Route path='/profile' exact><Profile userId={this.state.user_id} logout={this.logout} token={this.state.sessionToken} /></Route>
-          <Route path='/forums' exact><Forum userId={this.state.user_id} token={this.state.sessionToken} /></Route>
+          <Route onUpdate={() => window.scrollTo(0, 0)} path='/profile' exact><Profile userId={this.state.user_id} logout={this.logout} token={this.state.sessionToken} /></Route>
+          <Route onUpdate={() => window.scrollTo(0, 0)} path='/forums' exact><Forum userId={this.state.user_id} token={this.state.sessionToken} /></Route>
           <Route path='/contact' exact><Contact /></Route>
         </Switch>
       )
     } else {
       return (
         <Route path='/defaulthome' exact>
-          <DefaultHome />
+          <DefaultHome onUpdate={() => window.scrollTo(0, 0)} />
         </Route>
       )
     }
   }
-  
+
 
   render() {
     //console.log(this.state.user_id)

@@ -10,9 +10,14 @@
     text-align: center;
     font-family: 'Satisfy', cursive;
     font-size: 10vw;
+    color: black;
     margin:0;
-    padding: 110px;
-    
+    padding-top: 110px;
+}
+@media screen  and (max-width: 1020px){
+    .jumbotron h1{
+        font-size: 75pt;
+    }
 }
 .homeForum{
     border: 2px solid lightgrey;
@@ -21,9 +26,11 @@
     box-shadow: 1px 1px 1px;
     border-radius: 3px;
     max-width: 600px;
+    min-width: 260px;
     margin-top:20px;
     padding:10px;
 }
+
 .homeForum p:hover{
     text-decoration-line: none;
 }

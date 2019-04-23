@@ -1,5 +1,8 @@
 import React from 'react';
 import './Profile.css';
+import './ProfileUser.css';
+import './ProfileTabs.css';
+import './ProfileModal.css';
 import ProfileForum from './ProfileForum';
 import ProfileComments from './ProfileComments';
 import CreateForumPro from './CreateForumPro';
@@ -156,7 +159,6 @@ class Profile extends React.Component {
             .then(response => response.json())
             .then(response => { console.log("deleted user's comments deleted") })
     }
-    
 
     render() {
         return (
@@ -174,9 +176,9 @@ class Profile extends React.Component {
                         {this.state.showPopup ?
                             <div className='modal1'>
                                 <div className='modalContent'>
-                                    <Button className='xbtn' onClick={this.togglePopup}>X</Button>
+                                    <Button id='xbtn' onClick={this.togglePopup}>X</Button>
                                     <Form onSubmit={this.handleSubmit}>
-                                        <p>Only fill in information you wish to change</p>
+                                        <p>Only fill in new information</p>
                                         <FormGroup>
                                             <Label for='username'>Username:</Label>
                                             <br />

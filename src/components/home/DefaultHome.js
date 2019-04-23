@@ -8,6 +8,9 @@ class DefaultHome extends React.Component {
 
         }
     }
+    componentDidMount(){
+        
+    }
 
     render() {
         return (

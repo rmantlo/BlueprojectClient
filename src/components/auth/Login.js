@@ -3,7 +3,7 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import Radium from 'radium';
 
 
-const styles= {
+const styles = {
     header: {
         textAlign: 'center',
     },
@@ -41,7 +41,7 @@ class Login extends React.Component {
                 .then(data => {
                     this.props.setToken(data.sessionToken);
                     this.props.setUserId(data.user.id);
-                    console.log(data)
+                    //console.log(data);
                 })
                 .catch(err => console.log(err))
         }

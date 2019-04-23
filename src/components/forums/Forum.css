@@ -1,49 +1,7 @@
 .mainForum{
     text-align: center;
     position: relative;
-}
-
-.sideSearch{
-    text-align: center;
-    border-right: 2px solid whitesmoke;
-    float:left;
-    width:15%;
-    min-width: 300px;
-    height: 28vh;
-    padding-top:50px;
-    margin-top:50px;
-    margin-left:10px;
-}
-.sideSearch .form-control{
-    padding: 5px;
-}
-.forum{
-    display: inline-block;
-    border-top: 2px solid lightgrey;
-    margin-top:20px;
-    margin: auto auto;
-    padding: 10px;
-    width:80%;
-    height: 80%;
-}
-.createForum{
-    display: inline-block;
-    margin-top:100px;
-    border-top:2px solid whitesmoke;
-    border-bottom:2px solid whitesmoke;
-    padding: 10px;
-    width:60vw;
-    min-width: 300px;
-}
-.createForum button{
-    text-align: center;
-}
-.form-group {
-    padding:5px;
-    margin-bottom: 0px !important;
-}
-.form-group select{
-    padding:5px;
+    clear:both;
 }
 .mainForum a{
     text-decoration-line: none;
@@ -53,10 +11,6 @@
     color:purple;
 }
 
-.bothGroups{
-    margin: auto auto;
-    width: 290px;
-}
 .form-control {
     width: 155px;
     margin:0;
@@ -64,27 +18,47 @@
 .forumPost{
     padding-left: 3vw;
 }
+.forum{
+    float: right;
+    position: relative;
+    margin-top:20px;
+    margin: auto auto;
+    padding-right: 5px;
+    width:60vw;
+    min-width: 300px;
+}
+@media screen and (max-width: 1063px){
+    .forum{
+        position: relative;
+        padding-right:5px;
+        margin-top: 50px;
+        margin-left: 5vw;
+        float:left;
+        width:65vw;
+        min-width: 300px;
+    }
+}
 .forums{
     text-align: left;
-    border: 2px solid lightgrey;
+    border: 2px solid grey;
+    background-color: #EEEEEE;
     box-shadow: 1px 1px 1px;
-    border-radius: 3px;
-    margin-bottom:10px;
+    border-radius: 5px;
+    margin-top:30px;
     padding:10px;
+    min-width:300px;
 }
 .forums p, h3{
     margin:1px;
-}
-#keywordp{
-    font-size: 10pt;
-    margin-bottom:10px;
 }
 .forums a{
     color:purple;
     word-wrap: break-word;
 }
-.collapseBtn{
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    width: 100px;
+#keywordp{
+/* copy saved in profiletabs.css */
+    font-size: 10pt;
+    margin-bottom:15px !important;
+    margin-left: 0px !important;
 }
+

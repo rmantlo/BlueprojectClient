@@ -6,8 +6,8 @@ import Radium from 'radium';
 
 const styles = {
     modal: {
-        background: 'white',
         border: '2px solid lightgrey',
+        backgroundColor: '#EEEEEE',
         borderRadius: '20px',
         boxShadow: '2px 2px 2px',
         width: '20vw',

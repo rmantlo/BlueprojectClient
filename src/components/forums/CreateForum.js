@@ -1,4 +1,5 @@
 import React from 'react';
+import './CreateForum.css';
 import { Button, Form, FormGroup, Label, Input, Collapse } from 'reactstrap';
 
 export default class CreateForum extends React.Component {

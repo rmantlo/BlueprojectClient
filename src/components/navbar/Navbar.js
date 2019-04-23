@@ -12,8 +12,9 @@ import Reorder from '@material-ui/icons/Reorder';
 
 const styles= {
     img: {
-        maxWidth: '75px',
-        maxHeight: '200px'
+        maxWidth: '100px',
+        maxHeight: '60px',
+        marginLeft: '25px'
     }
 }
 

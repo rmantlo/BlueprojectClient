@@ -8,10 +8,17 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0% 70%;
+    border-radius: 0 !important;
+    border-bottom: 5px solid lightgrey;
 }
 
 .siteDescription {
     position: relative;
-    margin: 0 5vw 0 5vw;
-
+    margin: 25px 5vw 0 5vw;
+    background-color: #EEEEEE;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+.siteDescription p {
+    margin: 5px;
 }
