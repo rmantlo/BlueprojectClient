@@ -53,7 +53,7 @@ class Comment extends React.Component {
                         //let userId = Number(this.props.userId)
                         return (
                             <Card className='commentCard' key={comment.id}>
-                                <CommentBody handleDelete={this.handleDelete} userId={this.props.userId} token={this.props.token} comment={comment} edit={this.state.edit} />
+                                <CommentBody fetchComments={this.fetchComments} handleDelete={this.handleDelete} userId={this.props.userId} token={this.props.token} comment={comment} edit={this.state.edit} />
                             </Card>
                         )
                     })}

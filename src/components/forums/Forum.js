@@ -57,7 +57,7 @@ class Forum extends React.Component {
                     <div className='mainForum'>
                         <ForumSearch toggleSearch={this.toggleSearch} />
                         <div className='forum'>
-                            <CreateForum token={this.props.token} />
+                            <CreateForum fetchForums={this.fetchForums} token={this.props.token} />
                             <ForumPosts userId={this.props.userId} results={this.state.results} token={this.props.token} />
                         </div>
                     </div>

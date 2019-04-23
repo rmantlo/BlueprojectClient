@@ -10,10 +10,7 @@ const styles = {
         backgroundColor: '#EEEEEE',
         borderRadius: '20px',
         boxShadow: '2px 2px 2px',
-        width: '20vw',
-        left: 0,
-        right: 0,
-        marginTop: '100px',
+        marginTop: '50px',
     }
 }
 

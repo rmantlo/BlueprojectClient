@@ -10,7 +10,7 @@ import logo from '../../assets/MedicalConnect.png'
 import Radium from 'radium';
 import Reorder from '@material-ui/icons/Reorder';
 
-const styles= {
+const styles = {
     img: {
         maxWidth: '100px',
         maxHeight: '60px',
@@ -83,9 +83,9 @@ class NavBar extends React.Component {
                     <NavbarBrand href='/'><img style={styles.img} src={logo} alt='site logo' /></NavbarBrand>
                     {buttonToggle}
                 </Navbar>
-                <div>
-                    {this.props.sessionToken ? null : <Auth setUserId={this.props.setUserId} setToken={this.props.setToken} signup={this.state.signup} />}
-                </div>
+
+                {this.props.sessionToken ? null : <Auth setUserId={this.props.setUserId} setToken={this.props.setToken} signup={this.state.signup} />}
+
             </div>
         )
     }

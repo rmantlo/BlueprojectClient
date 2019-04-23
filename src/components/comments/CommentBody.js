@@ -17,7 +17,7 @@ class CommentBody extends React.Component {
         return (
             <div className='commentBody'>
                 {this.state.edit ?
-                    <EditComment edit={this.toggleEdit} token={this.props.token} comment={this.props.comment} />
+                    <EditComment fetchComments={this.props.fetchComments} edit={this.toggleEdit} token={this.props.token} comment={this.props.comment} />
                     : <CardBody>
                         <p>--{this.props.comment.username}--</p>
                         <p><b>{this.props.comment.comment}</b></p>

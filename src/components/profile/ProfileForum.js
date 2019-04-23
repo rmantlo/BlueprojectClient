@@ -26,7 +26,7 @@ export default class ProfileForum extends React.Component {
             .catch(err => console.log(err))
     }
     togglePopup = (e) => {
-        e.preventDefault();
+        
         this.setState({ showPopup: !this.state.showPopup });
         if (this.state.postId === '') {
             this.setState({ postId: e.target.id })
@@ -46,7 +46,7 @@ export default class ProfileForum extends React.Component {
                                 <h2>{result.title}</h2>
                                 <p>{result.forumMessage}</p>
                                 <a href={result.url} target='blank' >{result.url}</a><br />
-                                <Button className='profileForumBtn' id={result.id} onClick={this.togglePopup}>Edit</Button>
+                                <Button className='profileForumBtn' id={result.id} onClick={(e) => {e.preventDefault(); this.togglePopup(e)}}>Edit</Button>
                                 <Button className='profileForumBtn' color='danger' id={result.id} onClick={this.deletePost}>Delete</Button>
                                 <Comment userId={this.props.userId} token={this.props.token} forumId={result.id} />
                             </div>

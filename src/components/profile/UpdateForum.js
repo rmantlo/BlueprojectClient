@@ -17,7 +17,7 @@ export default class UpdateForum extends React.Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-        console.log(this.state)
+        //console.log(this.state)
     }
 
     handleSubmit = (e) => {
@@ -31,7 +31,7 @@ export default class UpdateForum extends React.Component {
             body: JSON.stringify(this.state)
         })
             .then(post => post.json())
-            .then(post => this.props.fetchUserForums())
+            .then(post => {this.props.fetchUserForums(); this.props.togglePopup()})
     }
 
     render() {

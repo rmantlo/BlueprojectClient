@@ -35,7 +35,7 @@ class CreateForumPro extends React.Component {
     }
     render() {
         return (
-            <div className='createForum'>
+            <div className='createUserForum'>
                 <h1>Create Forum Post</h1>
                 <Collapse isOpen={this.state.isOpen} >
                     <Form onSubmit={this.handleSubmit}>

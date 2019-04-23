@@ -7,7 +7,7 @@
     border-radius: 5px;
     width:20vw;
     min-width: 250px;
-    height: 28vh;
+    height: 280px;
     padding-top:50px;
     margin-top:143px;
     margin-left:2vw;
@@ -23,7 +23,7 @@
         border-radius: 5px;
         width:20vw;
         min-width: 250px;
-        height: 28vh;
+        height: 260px;
         padding-top:50px;
         margin-top:70px;
         margin-left:13vw;
@@ -32,4 +32,6 @@
 
 .sideSearch .form-control{
     padding: 5px;
+    margin: auto auto;
+    width: 200px;
 }

@@ -32,6 +32,14 @@
     border-bottom: 2px solid grey;
     margin-left: 2vw !important;
 }
+.profileMain .col-sm-12{
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+    width: 60vw !important;
+}
+.profileMain .row{
+    width: 60vw;
+}
 /* tab contents */
 /* Forum */
 #profileForum{
@@ -42,9 +50,11 @@
     margin-top:30px;
     padding-left:10px;
     padding-right:10px;
+    width: 60vw;
 }
 #profileForum p, h2{
     margin:1px 1px 1px 20px;
+    word-wrap: break-word;
     width: 90%;
 }
 #profileForum button{
@@ -69,8 +79,21 @@
     margin-bottom:15px !important;
     margin-left: 0px !important;
 }
+.createUserForum{
+    text-align: center;
+    margin-top:50px;
+    border-top:2px solid grey;
+    border-bottom:2px solid grey;
+    background-color: #EEEEEE;
+    border-radius: 5px;
+    padding: 5px;
+    width:50vw;
+    min-width: 300px;
+}
 /* Comments */
-
+.profileComments{
+    margin-top: 30px;
+}
 /* Buttons */
 .profileCommentBtn button{
     float:right;
@@ -83,5 +106,6 @@
     float: right;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    width: 81px
+    width: 81px;
+    margin: 3px;
 }

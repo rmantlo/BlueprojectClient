@@ -18,6 +18,9 @@
 .forumPost{
     padding-left: 3vw;
 }
+.forumPost h2{
+    margin-left: 0;
+}
 .forum{
     float: right;
     position: relative;

@@ -9,6 +9,7 @@
   /* background: #556B2F; */
   text-align: initial;
   margin-top:0;
+  padding-top: 20px;
   max-width: 100vw;
 }
 
@@ -26,7 +27,6 @@
   margin:auto auto;
   position:relative;
   width:90vw;
- 
   clear: both;
   overflow: auto;
 }

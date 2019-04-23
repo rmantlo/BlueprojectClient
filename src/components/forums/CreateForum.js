@@ -22,7 +22,8 @@ export default class CreateForum extends React.Component {
             [e.target.name]: e.target.value
         })
     }
-    handleSubmit = () => {
+    handleSubmit = (e) => {
+        e.preventDefault();
         fetch('http://localhost:3000/forum/create', {
             method: 'POST',
             headers: {
@@ -32,7 +33,7 @@ export default class CreateForum extends React.Component {
             body: JSON.stringify(this.state)
         })
             .then(post => post.json())
-            .then(post => console.log('post created'))
+            .then(post => this.props.fetchForums())
     }
 
     render() {

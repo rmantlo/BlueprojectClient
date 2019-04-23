@@ -45,7 +45,7 @@ class ProfileComments extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='profileComments'>
                 {this.state.comments.map(comment => {
                     let userId = Number(this.props.userId)
                     return (

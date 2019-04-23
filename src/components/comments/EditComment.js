@@ -13,7 +13,7 @@ export default class EditComment extends React.Component{
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target.id)
+        //console.log(e.target.id)
         fetch(`http://localhost:3000/comments/update/${e.target.id}`, {
             method:'PUT',
             headers: {
