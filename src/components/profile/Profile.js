@@ -33,6 +33,7 @@ class Profile extends React.Component {
             showPopup: false,
             deletePopup: false,
             activeTab: '1',
+            password:'',
         }
     }
     componentDidMount() {
@@ -83,6 +84,11 @@ class Profile extends React.Component {
         })
         console.log(this.state)
     }
+    handlePassChange = (e) =>{
+        this.setState({
+            password: e.target.value
+        })
+    }
 
     handleSubmit = (e) => {
         //e.preventDefault();
@@ -109,7 +115,7 @@ class Profile extends React.Component {
                     "Content-Type": 'application/json',
                     "Authorization": this.props.token
                 },
-                body: JSON.stringify(this.state.password)
+                body: JSON.stringify(this.state)
             })
                 .then(response => response.json())
                 .then(data => {
@@ -199,7 +205,7 @@ class Profile extends React.Component {
                                         <FormGroup>
                                             <Label for='password'>Password:</Label>
                                             <br />
-                                            <Input type='password' id='password' placeholder='enter new password' name='password' value={this.state.password} onChange={this.handleChange} />
+                                            <Input type='password' id='password' placeholder='enter new password' name='password' value={this.state.password} onChange={this.handlePassChange} />
                                         </FormGroup>
                                         <br />
                                         <Button className='greenBtn' type='submit'>Update Password</Button>
