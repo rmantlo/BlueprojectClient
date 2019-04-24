@@ -11,6 +11,7 @@
   margin-top:0;
   padding-top: 20px;
   max-width: 100vw;
+  min-height: 900px;
 }
 
 .mainPage a,input,label,p,textarea{
@@ -28,6 +29,8 @@
   position:relative;
   width:90vw;
   clear: both;
+  overflow: auto;
+
 }
 .greenBtn {
   background-color: #67994D !important;

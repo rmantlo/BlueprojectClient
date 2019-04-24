@@ -7,24 +7,5 @@
 .profile button{
     margin-left: 2px;
 }
-.profileMain{
-    position: relative;
-    float: right;
-    padding-right:5px;
-    margin-top: 50px;
-    margin-left:20px;
-    width:60vw;
-    min-width: 300px;
-}
-@media screen and (max-width: 963px){
-    .profileMain{
-        position: relative;
-        padding-right:5px;
-        margin-top: 50px;
-        margin-left:20px;
-        float:left;
-        width:60vw;
-        min-width: 300px;
-    }
-}
+
 

@@ -32,6 +32,26 @@
     border-bottom: 2px solid grey;
     margin-left: 2vw !important;
 }
+.profileMain{
+    position: relative;
+    float: right;
+    padding-right:5px;
+    margin-top: 50px;
+    margin-left:20px;
+    width:60vw;
+    min-width: 300px;
+}
+@media screen and (max-width: 963px){
+    .profileMain{
+        position: relative;
+        padding-right:5px;
+        margin-top: 50px;
+        margin-left:20px;
+        float:left;
+        width:60vw;
+        min-width: 300px;
+    }
+}
 .profileMain .col-sm-12{
     padding-right: 0 !important;
     padding-left: 0 !important;
@@ -43,6 +63,7 @@
 /* tab contents */
 /* Forum */
 #profileForum{
+    position: relative;
     border: 2px solid grey;
     background-color: #EEEEEE;
     box-shadow: 1px 1px 1px;
@@ -53,6 +74,7 @@
     padding-top:10px;
     padding-bottom: 10px;
     width: 60vw;
+    min-width: 250px;
 }
 #profileForum p, h2{
     margin:1px 1px 1px 0;
