@@ -48,12 +48,14 @@
     box-shadow: 1px 1px 1px;
     border-radius: 5px;
     margin-top:30px;
-    padding-left:10px;
+    padding-left:30px;
     padding-right:10px;
+    padding-top:10px;
+    padding-bottom: 10px;
     width: 60vw;
 }
 #profileForum p, h2{
-    margin:1px 1px 1px 20px;
+    margin:1px 1px 1px 0;
     word-wrap: break-word;
     width: 90%;
 }
@@ -66,7 +68,7 @@
 }
 #profileForum a{
     color:purple;
-    margin:1px 1px 1px 20px;
+    margin:1px 1px 1px 0;
     text-decoration-line: none;
     word-wrap: break-word;
 }
