@@ -1,5 +1,6 @@
 import React from 'react';
 import {Form, Button, Input} from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 export default class EditComment extends React.Component{
     constructor(props){
@@ -14,7 +15,7 @@ export default class EditComment extends React.Component{
     handleSubmit = (e) => {
         e.preventDefault();
         //console.log(e.target.id)
-        fetch(`http://localhost:3000/comments/update/${e.target.id}`, {
+        fetch(`${APIURL}/comments/update/${e.target.id}`, {
             method:'PUT',
             headers: {
                 "Content-Type":'application/json',

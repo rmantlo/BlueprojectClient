@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import Radium from 'radium';
+import APIURL from '../../helpers/environment';
 
 
 const styles= {
@@ -30,7 +31,7 @@ class Signup extends React.Component {
         if (!this.state.username || !this.state.password) {
             this.handleValidation();
         } else {
-            fetch('http://localhost:3000/user/createuser', {
+            fetch(`${APIURL}/user/createuser`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json'

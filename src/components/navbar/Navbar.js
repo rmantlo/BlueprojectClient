@@ -1,6 +1,5 @@
 import React from 'react';
 import './Navbar.css';
-//import { Link } from 'react-router-dom';
 import {
     Button, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Nav, NavLink
 } from 'reactstrap';
@@ -81,9 +80,7 @@ class NavBar extends React.Component {
                     </Collapse>
                 </div>
             );
-            const showAuths = this.props.showAuth ? 
-                <Auth setUserId={this.props.setUserId} setToken={this.props.setToken} signup={this.state.signup} /> 
-                : null
+            
         return (
             <div className='nav'>
                 <Navbar expand='md'>
@@ -92,7 +89,7 @@ class NavBar extends React.Component {
                 </Navbar>
 
                 {this.props.sessionToken ? null
-                   : showAuths
+                   : <Auth setUserId={this.props.setUserId} setToken={this.props.setToken} signup={this.state.signup} /> 
                 }
 
             </div>

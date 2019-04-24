@@ -2,6 +2,7 @@ import React from 'react';
 import './HomePage.css';
 import { Link } from 'react-router-dom';
 import Radium from 'radium';
+import APIURL from '../../helpers/environment';
 
 const styles = {
     a: {
@@ -25,7 +26,7 @@ class HomePage extends React.Component {
     }
 
     fetchOne = () => {
-        fetch('http://localhost:3000/forum/mostrecent', {
+        fetch(`${APIURL}/forum/mostrecent`, {
             method: 'GET',
             headers: {
                 "Content-Type": 'application/json',

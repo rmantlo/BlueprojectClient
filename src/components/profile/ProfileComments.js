@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Card, CardBody } from 'reactstrap';
 import EditComment from '../comments/EditComment';
+import APIURL from '../../helpers/environment';
 
 class ProfileComments extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class ProfileComments extends React.Component {
         this.setState({ edit: !this.state.edit })
     }
     fetchComments = () => {
-        fetch('http://localhost:3000/comments/getmine', {
+        fetch(`${APIURL}/comments/getmine`, {
             method: 'GET',
             headers: {
                 "Content-Type": 'application/json',
@@ -31,7 +32,7 @@ class ProfileComments extends React.Component {
 
     handleDelete = (e) => {
         //e.preventDefault();
-        fetch(`http://localhost:3000/comments/delete/${e.target.id}`, {
+        fetch(`${APIURL}/comments/delete/${e.target.id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": 'application/json',

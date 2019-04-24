@@ -3,6 +3,7 @@ import './Forum.css';
 import CreateForum from './CreateForum';
 import ForumSearch from './ForumSearch';
 import ForumPosts from './ForumPosts';
+import APIURL from '../../helpers/environment';
 
 class Forum extends React.Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class Forum extends React.Component {
     }
 
     fetchForums = () => {
-        fetch('http://localhost:3000/forum/', {
+        fetch(`${APIURL}/forum/`, {
             method: 'GET',
             headers: {
                 "Content-Type": 'application/json',
@@ -37,7 +38,7 @@ class Forum extends React.Component {
     }
 
     fetchSearch = (e) => {
-        fetch(`http://localhost:3000/forum/search/${e.target.id}`, {
+        fetch(`${APIURL}/forum/search/${e.target.id}`, {
             method: 'GET',
             headers: {
                 "Content-Type": 'application',

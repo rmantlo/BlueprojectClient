@@ -1,6 +1,7 @@
 import React from 'react';
 import './CreateForum.css';
 import { Button, Form, FormGroup, Label, Input, Collapse } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 export default class CreateForum extends React.Component {
     constructor(props) {
@@ -24,7 +25,7 @@ export default class CreateForum extends React.Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3000/forum/create', {
+        fetch(`${APIURL}/forum/create`, {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',

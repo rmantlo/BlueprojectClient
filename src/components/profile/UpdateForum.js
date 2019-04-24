@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Input, Label, Form, FormGroup } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 export default class UpdateForum extends React.Component {
     constructor(props) {
@@ -22,7 +23,7 @@ export default class UpdateForum extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/forum/update/${e.target.id}`, {
+        fetch(`${APIURL}/forum/update/${e.target.id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": 'application/json',

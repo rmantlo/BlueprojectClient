@@ -8,10 +8,6 @@ class DefaultHome extends React.Component {
 
         }
     }
-    componentDidMount(){
-        
-    }
-
     render() {
         return (
             <div className='mainPage'>

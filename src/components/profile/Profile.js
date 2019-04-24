@@ -9,6 +9,7 @@ import CreateForumPro from './CreateForumPro';
 import { Button, Form, FormGroup, Label, Input, Alert, Nav, NavLink, NavItem, TabContent, TabPane, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import Radium from 'radium';
+import APIURL from '../../helpers/environment';
 
 const styles = {
     danger: {
@@ -44,7 +45,7 @@ class Profile extends React.Component {
         }
     }
     fetchUserInfo = () => {
-        fetch('http://localhost:3000/userinfo/userinfo', {
+        fetch(`${APIURL}/userinfo/userinfo`, {
             method: 'GET',
             headers: {
                 "Content-Type": "application",
@@ -59,7 +60,7 @@ class Profile extends React.Component {
         //console.log(this.state.results)
     }
     fetchUserForums = () => {
-        fetch('http://localhost:3000/forum/getmine', {
+        fetch(`${APIURL}/forum/getmine`, {
             method: 'GET',
             headers: {
                 "Content-Type": 'application/json',
@@ -85,7 +86,7 @@ class Profile extends React.Component {
 
     handleSubmit = (e) => {
         //e.preventDefault();
-        fetch('http://localhost:3000/userinfo/updateuser', {
+        fetch(`${APIURL}/userinfo/updateuser`, {
             method: 'PUT',
             headers: {
                 "Content-Type": 'application/json',
@@ -102,7 +103,7 @@ class Profile extends React.Component {
         if (!this.state.password) {
             alert('please enter a new password')
         } else {
-            fetch('http://localhost:3000/userinfo/updatepassword', {
+            fetch(`${APIURL}/userinfo/updatepassword`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": 'application/json',
@@ -126,7 +127,7 @@ class Profile extends React.Component {
         this.deleteUserPosts();
         this.deleteUserComments();
         this.setState({ deletePopup: false });
-        fetch('http://localhost:3000/userinfo/deleteuser', {
+        fetch(`${APIURL}/userinfo/deleteuser`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": 'application',
@@ -138,7 +139,7 @@ class Profile extends React.Component {
         this.props.logout();
     }
     deleteUserPosts = () => {
-        fetch('http://localhost:3000/forum/deleteallbyuser', {
+        fetch(`${APIURL}/forum/deleteallbyuser`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": 'application',
@@ -149,7 +150,7 @@ class Profile extends React.Component {
             .then(response => { console.log("deleted user's post deleted") })
     }
     deleteUserComments = () => {
-        fetch('http://localhost:3000/comments/deleteallbyuser', {
+        fetch(`${APIURL}/comments/deleteallbyuser`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": 'application/json',

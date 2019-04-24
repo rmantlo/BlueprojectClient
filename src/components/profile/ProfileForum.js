@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'reactstrap';
 import UpdateForum from './UpdateForum';
 import Comment from '../comments/Comment';
+import APIURL from '../../helpers/environment';
 
 export default class ProfileForum extends React.Component {
     constructor(props) {
@@ -13,7 +14,7 @@ export default class ProfileForum extends React.Component {
     }
 
     deletePost = (event) => {
-        fetch(`http://localhost:3000/forum/delete/${event.target.id}`, {
+        fetch(`${APIURL}/forum/delete/${event.target.id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": 'application/json',

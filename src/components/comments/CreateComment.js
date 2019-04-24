@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input, Button, Form } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 export default class CreateComment extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ export default class CreateComment extends React.Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3000/comments/create', {
+        fetch(`${APIURL}/comments/create`, {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',

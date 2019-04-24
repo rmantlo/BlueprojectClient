@@ -3,6 +3,7 @@ import { Collapse, Button, Card } from 'reactstrap';
 import CreateComment from './CreateComment';
 import CommentBody from './CommentBody';
 import './Comment.css'
+import APIURL from '../../helpers/environment';
 
 
 class Comment extends React.Component {
@@ -20,7 +21,7 @@ class Comment extends React.Component {
         this.setState({ collapse: !this.state.collapse });
     }
     fetchComments = () => {
-        fetch(`http://localhost:3000/comments/comment/${this.props.forumId}`, {
+        fetch(`${APIURL}/comments/comment/${this.props.forumId}`, {
             method: 'GET',
             headers: {
                 "Content-Type": 'application/json',
@@ -32,7 +33,7 @@ class Comment extends React.Component {
     }
 
     handleDelete = (e) => {
-        fetch(`http://localhost:3000/comments/delete/${e}`, {
+        fetch(`${APIURL}/comments/delete/${e}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": 'application/json',
