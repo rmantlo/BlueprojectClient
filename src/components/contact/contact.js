@@ -19,7 +19,7 @@ class Contact extends React.Component {
                             <div className="container">
                                 <br />
                                 <br />
-                                <h2 className="text-center text-uppercase">Contact Me</h2>
+                                <h2 className="text-center text-uppercase">Contact</h2>
                                 <div className="row-contact">
                                     <div className="col-12">
                                         <form action="https://formspree.io/rebekahmantlo@gmail.com" method="POST">

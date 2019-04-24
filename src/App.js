@@ -14,7 +14,7 @@ class App extends Component {
     super(props);
     this.state = {
       sessionToken: '',
-      user_id: ''
+      user_id: '',
     }
   }
   componentWillMount() {
@@ -48,6 +48,7 @@ class App extends Component {
     this.setState({ sessionToken: '' });
     localStorage.clear();
   }
+  
 
   protectedViews = () => {
     if (this.state.sessionToken === localStorage.getItem('token')) {
@@ -63,9 +64,12 @@ class App extends Component {
       )
     } else {
       return (
-        <Route path='/defaulthome' exact>
-          <DefaultHome onUpdate={() => window.scrollTo(0, 0)} />
-        </Route>
+        <Switch>
+          <Route path='/' exact>
+            <DefaultHome onUpdate={() => window.scrollTo(0, 0)} />
+          </Route>
+          <Route path='/contact' exact><Contact /></Route>
+        </Switch>
       )
     }
   }
@@ -77,7 +81,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <NavBar setUserId={this.setUserId} sessionToken={this.state.sessionToken} setToken={this.setSessionToken} logout={this.logout} />
+          <NavBar showAuth={this.state.showAuth} setUserId={this.setUserId} sessionToken={this.state.sessionToken} setToken={this.setSessionToken} logout={this.logout} />
           {this.protectedViews()}
           <Footer />
         </Router>

@@ -17,7 +17,7 @@ const styles = {
 
 }
 
-const Footer = () => {
+const Footer = (props) => {
     return (
         <footer style={styles.all} className='footer'>
             <Link style={styles.link} to='/'>Home</Link><br/>

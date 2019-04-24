@@ -26,12 +26,17 @@ class NavBar extends React.Component {
             sessionToken: '',
             login: false,
             signup: false,
+            showAuth: true,
         }
     }
     toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
+    }
+    toggleAuth = (a) => {
+        this.setState({showAuth: a});
+        console.log(a)
     }
     handleLoginToggle = (e) => {
         e.preventDefault();
@@ -76,7 +81,9 @@ class NavBar extends React.Component {
                     </Collapse>
                 </div>
             );
-
+            const showAuths = this.props.showAuth ? 
+                <Auth setUserId={this.props.setUserId} setToken={this.props.setToken} signup={this.state.signup} /> 
+                : null
         return (
             <div className='nav'>
                 <Navbar expand='md'>
@@ -84,7 +91,9 @@ class NavBar extends React.Component {
                     {buttonToggle}
                 </Navbar>
 
-                {this.props.sessionToken ? null : <Auth setUserId={this.props.setUserId} setToken={this.props.setToken} signup={this.state.signup} />}
+                {this.props.sessionToken ? null
+                   : showAuths
+                }
 
             </div>
         )
