@@ -35,18 +35,21 @@ class NavBar extends React.Component {
     }
     toggleAuth = (a) => {
         this.setState({showAuth: a});
-        console.log(a)
     }
     handleLoginToggle = (e) => {
         e.preventDefault();
-        this.setState({ login: true, signup: false })
+        this.setState({ login: !this.state.login, signup: false })
     }
     handleSignupToggle = (e) => {
         e.preventDefault();
-        this.setState({ signup: true, login: false })
+        this.setState({ signup: !this.state.signup, login: false })
+    }
+    handleExitToggle = () => {
+        this.setState({signup: false, login: false})
     }
 
     render() {
+        //console.log(this.state.login, this.state.signup);
         let buttonToggle = !this.props.sessionToken ? (
             <div className='navItems'>
                 <NavbarToggler onClick={this.toggle}><Reorder /></NavbarToggler>
@@ -89,7 +92,7 @@ class NavBar extends React.Component {
                 </Navbar>
 
                 {this.props.sessionToken ? null
-                   : <Auth setUserId={this.props.setUserId} setToken={this.props.setToken} signup={this.state.signup} /> 
+                   : <Auth exit={this.handleExitToggle} setUserId={this.props.setUserId} setToken={this.props.setToken} login={this.state.login} signup={this.state.signup} /> 
                 }
 
             </div>

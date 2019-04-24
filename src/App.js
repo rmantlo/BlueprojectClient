@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/navbar/Navbar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import DefaultHome from './components/home/DefaultHome';
 import HomePage from './components/home/HomePage';
 import Profile from './components/profile/Profile';
@@ -65,10 +65,12 @@ class App extends Component {
     } else {
       return (
         <Switch>
+          <Redirect from='/profile' to='/' />
+          <Redirect from='/forums' to='/' />
           <Route path='/' exact>
             <DefaultHome onUpdate={() => window.scrollTo(0, 0)} />
           </Route>
-          <Route path='/contact' exact><Contact /></Route>
+          <Route onUpdate={() => window.scrollTo(0, 0)} path='/contact' exact><Contact /></Route>
         </Switch>
       )
     }

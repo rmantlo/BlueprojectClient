@@ -13,15 +13,16 @@ import APIURL from '../../helpers/environment';
 
 const styles = {
     danger: {
-        position: 'absolute',
-        marginTop: '100px',
-        width: '100%',
+        position: 'fixed',
+        marginTop: '10rem',
+        width: '92vw',
         zIndex: 5,
         textAlign: 'center',
         height: '200px',
         padding: '50px',
         backgroundColor: '#E95041',
-        color: 'black'
+        color: 'black',
+        borderColor: '#E95041'
     }
 }
 class Profile extends React.Component {

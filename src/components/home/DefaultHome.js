@@ -12,7 +12,7 @@ class DefaultHome extends React.Component {
         return (
             <div className='mainPage'>
                 <div className='jumbotron'>
-
+                <h1>Medical Connect</h1>
                 </div>
                 <div className='wrapper'>
                     <div className='siteDescription'>

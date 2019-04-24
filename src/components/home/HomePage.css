@@ -12,11 +12,21 @@
     font-size: 10vw;
     color: black;
     margin:0;
-    padding-top: 110px;
+    padding-top: 100px;
+}
+.jumbotron h3{
+    text-align: center;
+    font-family: 'Satisfy', cursive;
+    font-size: 6vw;
+    color: black;
+    margin:0;
 }
 @media screen  and (max-width: 1020px){
     .jumbotron h1{
         font-size: 75pt;
+    }
+    .jumbotron h3{
+        font-size: 30pt;
     }
 }
 .homeForum{
@@ -54,4 +64,6 @@
 
 .homePageh3 {
     text-align: center;
+    margin-left:0 !important;
+    text-decoration-line: underline
 }

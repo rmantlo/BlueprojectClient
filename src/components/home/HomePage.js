@@ -43,11 +43,12 @@ class HomePage extends React.Component {
             <div className='mainPage'>
                 <div className='jumbotron'>
                     <h1>Medical Connect</h1>
+                    <h3>Welcome!</h3>
                 </div>
                 <div className='wrapper'>
                     <div className='siteDescription'>
-                        <h3 className='homePageh3'>Most recent post</h3>
                         <div className='forumLink'>
+                            <h3 className='homePageh3'>Most recent post</h3>
                             <Link to='forums' className='homeLink'>
                                 {this.state.results.map(result => {
                                     return (

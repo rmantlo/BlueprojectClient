@@ -2,17 +2,7 @@ import React from 'react';
 import Login from './Login';
 import Signup from './Signup';
 import './Auth.css';
-import Radium from 'radium';
 
-const styles = {
-    modal: {
-        border: '2px solid lightgrey',
-        backgroundColor: '#EEEEEE',
-        borderRadius: '20px',
-        boxShadow: '2px 2px 2px',
-        top: '100px',
-    }
-}
 
 class Auth extends React.Component {
     constructor(props) {
@@ -23,12 +13,12 @@ class Auth extends React.Component {
 
     render() {
         return (
-            <div style={styles.modal} className='auth' >
-                {!this.props.signup ? <Login setUserId={this.props.setUserId} setToken={this.props.setToken} /> : null}
-                {this.props.signup ? <Signup setUserId={this.props.setUserId} setToken={this.props.setToken} /> : null}
+            <div  >
+                {this.props.login ? <Login exit={this.props.exit} setUserId={this.props.setUserId} setToken={this.props.setToken} /> : null}
+                {this.props.signup ? <Signup exit={this.props.exit} setUserId={this.props.setUserId} setToken={this.props.setToken} /> : null}
             </div>
         )
     }
 }
 
-export default Radium(Auth);
+export default Auth;

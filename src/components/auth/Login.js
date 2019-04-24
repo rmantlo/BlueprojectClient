@@ -10,9 +10,20 @@ const styles = {
     },
     button: {
         margin: '10px',
-        textAlign: 'center',
+    },
+    exitButton:{
+        float: 'right',
+        margin: '10px'
+    },
+    modal: {
+        border: '2px solid lightgrey',
+        backgroundColor: '#EEEEEE',
+        borderRadius: '20px',
+        boxShadow: '2px 2px 2px',
+        top: '100px',
     }
 }
+
 
 class Login extends React.Component {
     constructor(props) {
@@ -59,7 +70,7 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={styles.modal} className='auth'>
                 <h1 style={styles.header}>Login</h1>
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
@@ -71,6 +82,7 @@ class Login extends React.Component {
                         <Input id='li_password' type='password' name='password' placeholder='enter password' onChange={this.handleChange} />
                     </FormGroup>
                     <Button className='greenBtn' style={styles.button} type='submit'>Login</Button>
+                    <Button style={styles.exitButton} onClick={(e)=>{e.preventDefault(); this.props.exit();}}>X</Button>
                 </Form>
             </div>
         )

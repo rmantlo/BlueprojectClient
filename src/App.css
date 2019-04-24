@@ -28,7 +28,6 @@
   position:relative;
   width:90vw;
   clear: both;
-  overflow: auto;
 }
 .greenBtn {
   background-color: #67994D !important;
@@ -43,4 +42,7 @@
 .row{
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+.form-control {
+  margin:0;
 }
